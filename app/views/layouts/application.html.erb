@@ -15,7 +15,7 @@
 <nav class="navbar navbar-light bg-faded">
   <a class="navbar-brand" href="#">Navbar</a>
   <ul class="nav navbar-nav">
-    <%= li_link_to "Home", root_url, class: 'active' %>
+    <%= li_link_to "Home", root_url %>
     <% if user_signed_in? %>
       <%= li_link_to "Edit account", edit_user_registration_path %>
       <%= li_link_to "Sign out", destroy_user_session_path, method: 'delete' %>

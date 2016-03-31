@@ -3,18 +3,15 @@ uri      = scheme + window.document.location.host + "/"
 window.ws = new WebSocket(uri)
 
 window.ws.onmessage = (message) ->
-  $.ajax
-    url: ('/messages')
-    data: ''
-    success: -> console.log("done")
-    dataType: 'script'
+  $.get '/messages', (data) ->
+    $('.messages').html(data)
+    $("input#message_content").val('').focus()
 
 setupEvents = ->
   $("form#new_message").on 'submit', (event) ->
-    event.preventDefault()
+    console.log("submitting")
     window.ws.send("he just submitted")
 
-$(document).on "ready page:change"
+$(document).on "page:change", ->
   setupEvents()
-  setupTracking()
 

@@ -2,7 +2,9 @@
   <%= message.id %>.
   <%= message.content %>
   <% if message.user %>
-    <i>by</i>
-    <%= message.user %>
+    <span class="user">
+      <i>by</i>
+      <%= message.user %>
+    </span>
   <% end %>
 <% end %>

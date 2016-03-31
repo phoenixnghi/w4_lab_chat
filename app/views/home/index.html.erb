@@ -1,12 +1,16 @@
-<h1>Home#index</h1>
+<h1>Chat Room</h1>
 
 <div class="chat-wrapper">
   <div class="messages">
     <%= render Message.last_five %>
   </div>
-</div>
 
-<%= form_for Message.new do |f| %>
-  <%= f.text_field :content, class: 'form-control' %>
-  <%= f.submit "Send" %>
-<% end %>
+  <%= form_for Message.new, remote: true do |f| %>
+    <div class="input-group">
+      <%= f.text_field :content, class: 'form-control', autocomplete: "off" %>
+      <div class="input-group-btn">
+        <%= f.submit "Send", class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  <% end %>
+</div>

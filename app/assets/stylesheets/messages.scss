@@ -2,10 +2,18 @@
   width: 400px;
 }
 .message {
-  border: 1px solid blue;
+  border: 1px solid #efefef;
   padding: 10px;
+  .user {
+    font-size: .8em;
+    color: #666;
+    float: right;
+  }
+}
+.messages {
+  margin-bottom: 10px;
 }
 
 input[type=text] {
-  border: 1px solid orange;
+  // border: 1px solid orange;
 }
