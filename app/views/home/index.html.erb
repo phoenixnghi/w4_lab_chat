@@ -5,12 +5,16 @@
     <%= render Message.last_five %>
   </div>
 
-  <%= form_for Message.new, remote: true do |f| %>
-    <div class="input-group">
-      <%= f.text_field :content, class: 'form-control', autocomplete: "off" %>
-      <div class="input-group-btn">
-        <%= f.submit "Send", class: 'btn btn-secondary' %>
+  <% if current_user %>
+    <%= form_for Message.new, remote: true do |f| %>
+      <div class="input-group">
+        <%= f.text_field :content, class: 'form-control', autocomplete: "off" %>
+        <div class="input-group-btn">
+          <%= f.submit "Send", class: 'btn btn-secondary' %>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path %> to chat.
   <% end %>
 </div>
