@@ -1,4 +1,4 @@
-scheme   = "ws://";
+scheme   = if location.protocol == 'http:' then "ws://" else "wss://"
 uri      = scheme + window.document.location.host + "/"
 window.ws = new WebSocket(uri)
 
