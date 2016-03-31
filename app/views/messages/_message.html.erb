@@ -1,0 +1,8 @@
+<%= div_for message do %>
+  <%= message.id %>.
+  <%= message.content %>
+  <% if message.user %>
+    <i>by</i>
+    <%= message.user %>
+  <% end %>
+<% end %>
