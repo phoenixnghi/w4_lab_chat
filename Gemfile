@@ -55,3 +55,4 @@ gem 'jquery-ui-rails'
 gem 'rails_12factor'
 gem "letter_opener", :group => :development
 gem 'maildown'
+gem 'rollbar', '~> 1.2.7'
