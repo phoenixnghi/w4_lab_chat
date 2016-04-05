@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'top_users_chart' => 'charts#top_users'
+  get 'message_stats_chart' => 'charts#message_stats'
   resources :messages
   resources :users, only: [:index]
   devise_for :users
