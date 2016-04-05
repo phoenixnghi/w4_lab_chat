@@ -3,4 +3,5 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
+//= require jquery-ui
 //= require chat_socket

@@ -9,7 +9,7 @@ window.ws.onmessage = (message) ->
     # append the new message html content
     when 'message_create' then $(data.content).hide().appendTo('.messages').slideDown()
     # remove the deleted message
-    when 'message_delete' then $('.messages').find(data.content).slideToggle(300, -> $(this).remove())
+    when 'message_delete' then $('.messages').find(data.content).slideUp(300, -> $(this).remove())
     else console.log("unknown event", data.event)
 
 # see: https://github.com/rails/jquery-ujs/wiki/ajax
@@ -22,6 +22,12 @@ setupForm = ->
     alert("Couldn't send the message. Try again later.")
   )
 
+  $('.message_delete').on('ajax:before', ->
+    $(this).parent().slideUp('slow')
+  ).on('ajax:error', (event, xhr, status, error) ->
+    console.log("Error: ", error)
+    $(this).parent().effect('shake')
+  )
 
 $(document).on "page:change", ->
   setupForm()

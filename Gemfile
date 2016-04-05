@@ -48,8 +48,7 @@ end
 
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha3'
-source 'https://rails-assets.tenex.tech' do
-  gem 'rails-assets-tether'
-end
+gem 'rails-assets-tether' # for now, this is more reliable than using the rails-assets source 
 gem 'puma'
 gem 'faye-websocket'#, require: ''faye/websocket'
+gem 'jquery-ui-rails'
