@@ -1,20 +1,31 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+<% end %>
+
 <h1>Chat Room</h1>
 
-<div class="chat-wrapper">
-  <div class="messages">
-    <%= render Message.last_five %>
-  </div>
-
-  <% if current_user %>
-    <%= form_for Message.new, remote: true do |f| %>
-      <div class="input-group">
-        <%= f.text_field :content, class: 'form-control', autocomplete: "off", 'data-user' => current_user.email %>
-        <div class="input-group-btn">
-          <%= f.submit "Send", class: 'btn btn-secondary' %>
-        </div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="chat-wrapper">
+      <div class="messages">
+        <%= render Message.last_five %>
       </div>
-    <% end %>
-  <% else %>
-    <%= link_to "Sign in", new_user_session_path %> to chat.
-  <% end %>
+
+      <% if current_user %>
+        <%= form_for Message.new, remote: true do |f| %>
+          <div class="input-group">
+            <%= f.text_field :content, class: 'form-control', autocomplete: "off", 'data-user' => current_user.email %>
+            <div class="input-group-btn">
+              <%= f.submit "Send", class: 'btn btn-secondary' %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %> to chat.
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <%= pie_chart Message.top(:user) %>
+  </div>
 </div>
