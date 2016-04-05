@@ -1,10 +1,16 @@
 <%= div_for message do %>
-  <%= message.id %>.
-  <%= message.content %>
+  <%= link_to "&times".html_safe, message, method: 'delete', remote: true, class: 'pull-xs-right message_delete' %>
   <% if message.user %>
-    <span class="user">
-      <i>by</i>
-      <%= message.user %>
-    </span>
+    <div>
+      <span class="message_sender">
+        <%= message.user %>:
+      </span>
+      <span class="message_timestamp">
+        <%= message.created_at.to_s(:time) %>
+      </span>
+    </div>
   <% end %>
+  <div class="message_content">
+    <%= message.content %>
+  </div>
 <% end %>

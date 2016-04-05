@@ -1,4 +1,4 @@
 <% if @message.errors.empty? %>
-  var html = "<%= j render @message %>";
-  window.ws.send(JSON.stringify({html: html, event: 'message_create'}))
+  var content = "<%= j render @message %>";
+  window.ws.send(JSON.stringify({content: content, event: 'message_create'}))
 <% end %>

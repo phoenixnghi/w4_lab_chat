@@ -5,8 +5,12 @@ window.ws = new WebSocket(uri)
 window.ws.onmessage = (message) ->
   console.log("received: ", message)
   data = JSON.parse(message.data)
-  if data.event == 'message_create'
-    $('.messages').append(data.html)
+  switch data.event
+    # append the new message html content
+    when 'message_create' then $(data.content).hide().appendTo('.messages').slideDown()
+    # remove the deleted message
+    when 'message_delete' then $('.messages').find(data.content).slideToggle(300, -> $(this).remove())
+    else console.log("unknown event", data.event)
 
 # see: https://github.com/rails/jquery-ujs/wiki/ajax
 setupForm = ->

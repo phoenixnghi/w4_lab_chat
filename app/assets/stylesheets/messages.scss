@@ -4,10 +4,21 @@
 .message {
   border: 1px solid #efefef;
   padding: 10px;
-  .user {
+  .message_sender {
     font-size: .8em;
-    color: #666;
-    float: right;
+    color: #333;
+  }
+  .message_timestamp {
+    font-size: .8em;
+    color: #999;
+  }
+  a.message_delete {
+    color: #ccc;
+    text-decoration: none;
+    &:hover {
+      color: #000;
+      font-weight: bold;
+    }
   }
 }
 .messages {
