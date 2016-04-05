@@ -52,3 +52,4 @@ gem 'rails-assets-tether' # for now, this is more reliable than using the rails-
 gem 'puma'
 gem 'faye-websocket'#, require: ''faye/websocket'
 gem 'jquery-ui-rails'
+gem 'rails_12factor'
