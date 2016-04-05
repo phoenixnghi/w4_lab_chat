@@ -53,3 +53,5 @@ gem 'puma'
 gem 'faye-websocket'#, require: ''faye/websocket'
 gem 'jquery-ui-rails'
 gem 'rails_12factor'
+gem "letter_opener", :group => :development
+gem 'maildown'
