@@ -8,7 +8,7 @@
   <% if current_user %>
     <%= form_for Message.new, remote: true do |f| %>
       <div class="input-group">
-        <%= f.text_field :content, class: 'form-control', autocomplete: "off" %>
+        <%= f.text_field :content, class: 'form-control', autocomplete: "off", 'data-user' => current_user.email %>
         <div class="input-group-btn">
           <%= f.submit "Send", class: 'btn btn-secondary' %>
         </div>

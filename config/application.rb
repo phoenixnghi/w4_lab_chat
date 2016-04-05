@@ -10,7 +10,6 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
-require_relative "../lib/chat_backend"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -32,6 +31,8 @@ module Chatdemo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.middleware.use ChatBackend
   end
 end
+
+require 'chat_backend'
+Rails.configuration.middleware.insert_before Rack::Sendfile, ChatBackend

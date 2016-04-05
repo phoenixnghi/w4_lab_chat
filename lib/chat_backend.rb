@@ -26,7 +26,6 @@ class ChatBackend
         @clients.delete(ws)
         ws = nil
       end
-      # WebSockets logic goes here
 
       # Return async Rack response
       ws.rack_response
