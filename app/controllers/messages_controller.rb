@@ -4,10 +4,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new message_params
+    @message    = Message.new message_params
     @message.ip = request.remote_ip
     @message.save!
-    redirect_to root_path
+
+    # let's broadcast message html to all the clients
+    ActionCable.server.broadcast 'messages', message: render_message(@message)
+    head :ok
   end
 
   private
@@ -15,4 +18,9 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content)
   end
+
+  def render_message(message)
+    ApplicationController.render partial: 'messages/message', locals: { message: message }
+  end
+
 end
