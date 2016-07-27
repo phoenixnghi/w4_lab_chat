@@ -40,8 +40,8 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   config.action_cable.allowed_request_origins = [
-      'https://lab4-chat-coderschool.herokuapp.com/',
-      'http://lab4-chat-coderschool.herokuapp.com/'
+      'https://lab4-chat-coderschool.herokuapp.com',
+      'http://lab4-chat-coderschool.herokuapp.com'
   ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
