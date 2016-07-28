@@ -39,11 +39,11 @@ Rails.application.configure do
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
-  config.action_cable.url                  = 'wss://lab4-chat-coderschool.herokuapp.com/cable'
+  config.action_cable.url                  = 'wss://pxn-lab-chat.herokuapp.comcable'
 
   config.action_cable.allowed_request_origins = [
-      'https://lab4-chat-coderschool.herokuapp.com',
-      'http://lab4-chat-coderschool.herokuapp.com']
+      'https://pxn-lab-chat.herokuapp.com',
+      'http://pxn-lab-chat.herokuapp.com']
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
