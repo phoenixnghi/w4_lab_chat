@@ -9,7 +9,15 @@ class MessagesController < ApplicationController
     @message.save!
 
     # let's broadcast message html to all the clients
+    # ActionCable.server.broadcast 'messages', message: { data: render_message(@message), action: 'create' }
     ActionCable.server.broadcast 'messages', message: render_message(@message)
+    head :ok
+  end
+
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+    ActionCable.server.broadcast 'messages', message: { data: @message.id, action: 'delete' }
     head :ok
   end
 
